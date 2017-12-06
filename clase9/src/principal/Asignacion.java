@@ -56,7 +56,12 @@ public class Asignacion {
         // obtenemos el promedio de un arreglo en especifico
         double res = 0;
         for (double a: arr) res += a;
-        return res/arr.length;
+        // cuando no hay estudiantes, manejar divicion para 0
+        try {
+            return res/arr.length;
+        } catch (ArithmeticException  e) {
+            return res;
+        }
     }
     
     public String estudianteToString() {
